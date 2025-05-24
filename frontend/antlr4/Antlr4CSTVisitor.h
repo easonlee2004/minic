@@ -225,14 +225,14 @@ protected:
 	/// @param ctx CST上下文
 	/// @return std::any AST的节点
 	///
-	std::any visitLogicOrExp(MiniCParser::LorExpContext * ctx) override;
+	std::any visitLogicOrExp(MiniCParser::LogicOrExpContext * ctx) override;
 
 	///
 	/// @brief 非终结符LogicAndExp的分析
 	/// @param ctx CST上下文
 	/// @return std::any AST的节点
 	///
-	std::any visitLogicAndExp(MiniCParser::LandExpContext * ctx) override;
+	std::any visitLogicAndExp(MiniCParser::LogicAndContext * ctx) override;
 
 	///
 	/// @brief 非终结符EqExp的分析
