@@ -16,6 +16,7 @@
 
 #include <cstdlib>
 #include <string>
+#include <cstdint>
 
 #include "IRConstant.h"
 #include "Function.h"
@@ -287,6 +288,8 @@ void Function::renameIR()
     }
 
     int32_t nameIndex = 0;
+    int32_t tmpVarIndex = 0;
+	int32_t labelIndex = 0;
 
     // 形式参数重命名
     for (auto & param: this->params) {
@@ -332,4 +335,36 @@ void Function::realArgCountInc()
 void Function::realArgCountReset()
 {
     this->realArgCount = 0;
+}
+
+///
+/// @brief 获取当前循环的continue目标标签
+/// @return continue跳转目标标签
+LabelInstruction * Function::getContinueTarget()
+{
+    return continueTarget;
+}
+
+///
+/// @brief 设置当前循环的continue目标标签
+/// @param label continue跳转目标标签
+void Function::setContinueTarget(LabelInstruction * label)
+{
+    continueTarget = label;
+}
+
+///
+/// @brief 获取当前循环的break目标标签
+/// @return break跳转目标标签
+LabelInstruction * Function::getBreakTarget()
+{
+    return breakTarget;
+}
+
+///
+/// @brief 设置当前循环的break目标标签
+/// @param label continue跳转目标标签
+void Function::setBreakTarget(LabelInstruction * label)
+{
+    breakTarget = label;
 }

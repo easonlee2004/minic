@@ -214,4 +214,22 @@ public:
 
     /// @brief 删除无用的Label指令
     void deleteUnusedLabel();
+
+	/// @brief 整数乘法指令
+	void mul(int dst_reg_no, int src1_reg_no, int src2_reg_no);
+
+	/// @brief 整数除法指令（有符号）
+	void idiv(int dst_reg_no, int src1_reg_no, int src2_reg_no);
+
+	/// @brief 条件跳转指令
+	void branch(std::string cond, std::string label);
+
+	/// @brief 条件赋值指令
+	void mov_cond(std::string cond, int dst_reg_no, int value);
+
+	/// @brief 寄存器比较指令
+	void cmp(int reg1_no, int reg2_no);
+
+	/// @brief 寄存器和立即数比较指令
+	void cmp_imm(int reg_no, int imm);
 };

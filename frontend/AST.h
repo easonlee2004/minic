@@ -87,9 +87,60 @@ enum class ast_operator_type : int {
     AST_OP_ADD,
 
     /// @brief 二元运算符*
-    AST_OP_SUB, //
+    AST_OP_SUB,
 
     // TODO 抽象语法树其它内部节点运算符追加
+
+	/// @brief 二元运算符*
+	AST_OP_MUL,
+
+	/// @brief 二元运算符/
+	AST_OP_DIV,
+
+	/// @brief 二元运算符%
+	AST_OP_MOD,
+
+	/// @brief 一元运算符-
+	AST_OP_NEG,
+
+    /// @brief 大于
+    AST_OP_GT,
+
+    /// @brief 小于
+	OP_LT,
+
+    /// @brief 大于等于
+    AST_OP_GE,
+
+    /// @brief 小于等于
+    AST_OP_LE,
+
+    /// @brief 等于比较
+    AST_OP_EQ,
+
+    /// @brief 不等于比较
+    AST_OP_NE,
+
+    /// @brief 逻辑与
+    AST_OP_LAND,
+
+    /// @brief 逻辑或
+    AST_OP_LOR,
+
+    /// @brief 逻辑非
+    AST_OP_LNOT,
+
+    /// @brief if条件语句
+    AST_OP_IF,
+
+    /// @brief while循环语句
+    AST_OP_WHILE,
+
+    /// @brief break语句
+    AST_OP_BREAK,
+
+    /// @brief continue语句
+    AST_OP_CONTINUE,	
 
     /// @brief 最大标识符，表示非法运算符
     AST_OP_MAX,

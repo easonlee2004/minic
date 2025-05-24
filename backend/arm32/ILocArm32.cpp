@@ -554,3 +554,68 @@ void ILocArm32::jump(std::string label)
 {
     emit("b", label);
 }
+
+/// @brief 整数乘法指令
+/// @param dst_reg_no 目标寄存器号
+/// @param src1_reg_no 源寄存器1号
+/// @param src2_reg_no 源寄存器2号
+void ILocArm32::mul(int dst_reg_no, int src1_reg_no, int src2_reg_no)
+{
+    emit("mul", 
+         PlatformArm32::regName[dst_reg_no], 
+         PlatformArm32::regName[src1_reg_no], 
+         PlatformArm32::regName[src2_reg_no]);
+}
+
+/// @brief 整数除法指令 (sdiv为有符号除法)
+/// @param dst_reg_no 目标寄存器号
+/// @param src1_reg_no 源寄存器1号
+/// @param src2_reg_no 源寄存器2号
+void ILocArm32::idiv(int dst_reg_no, int src1_reg_no, int src2_reg_no)
+{
+    emit("sdiv", 
+         PlatformArm32::regName[dst_reg_no], 
+         PlatformArm32::regName[src1_reg_no], 
+         PlatformArm32::regName[src2_reg_no]);
+}
+
+/// @brief 条件跳转指令
+/// @param cond 条件码（如eq, ne等）
+/// @param label 目标标签名
+void ILocArm32::branch(std::string cond, std::string label)
+{
+    emit("b" + cond, label);
+}
+
+/// @brief 条件赋值指令
+/// @param cond 条件码（如eq, ne等）
+/// @param dst_reg_no 目标寄存器号
+/// @param value 立即数值
+void ILocArm32::mov_cond(std::string cond, int dst_reg_no, int value)
+{
+    std::string imm_str = toStr(value, true); // 添加#前缀
+    emit("mov" + cond, 
+         PlatformArm32::regName[dst_reg_no], 
+         imm_str);
+}
+
+/// @brief 寄存器比较指令
+/// @param reg1_no 第一个寄存器号
+/// @param reg2_no 第二个寄存器号
+void ILocArm32::cmp(int reg1_no, int reg2_no)
+{
+    emit("cmp", 
+         PlatformArm32::regName[reg1_no], 
+         PlatformArm32::regName[reg2_no]);
+}
+
+/// @brief 寄存器和立即数比较指令
+/// @param reg_no 寄存器号
+/// @param imm 立即数值
+void ILocArm32::cmp_imm(int reg_no, int imm)
+{
+    std::string imm_str = toStr(imm, true); // 添加#前缀
+    emit("cmp", 
+         PlatformArm32::regName[reg_no], 
+         imm_str);
+}

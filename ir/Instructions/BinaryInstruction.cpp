@@ -15,6 +15,7 @@
 /// </table>
 ///
 #include "BinaryInstruction.h"
+#include <string>
 
 /// @brief 构造函数
 /// @param _op 操作符
@@ -41,18 +42,42 @@ void BinaryInstruction::toString(std::string & str)
 
     switch (op) {
         case IRInstOperator::IRINST_OP_ADD_I:
-
-            // 加法指令，二元运算
             str = getIRName() + " = add " + src1->getIRName() + "," + src2->getIRName();
             break;
         case IRInstOperator::IRINST_OP_SUB_I:
-
-            // 减法指令，二元运算
             str = getIRName() + " = sub " + src1->getIRName() + "," + src2->getIRName();
             break;
-
+		 case IRInstOperator::IRINST_OP_MUL_I:
+            str = getIRName() + " = mul " + src1->getIRName() + "," + src2->getIRName();
+            break;
+		case IRInstOperator::IRINST_OP_DIV_I:
+			str = getIRName() + " = div " + src1->getIRName() + "," + src2->getIRName();
+			break;
+		case IRInstOperator::IRINST_OP_MOD_I:
+			str = getIRName() + " = mod " + src1->getIRName() + "," + src2->getIRName();
+			break;
+		case IRInstOperator::IRINST_OP_NEG_I:
+			str = getIRName() + " = neg " + src1->getIRName();
+			break;
+		case IRInstOperator::IRINST_OP_LT_I:
+			str = getIRName() + " = icmp lt " + src1->getIRName() + "," + src2->getIRName();
+			break;
+		case IRInstOperator::IRINST_OP_GT_I:
+			str = getIRName() + " = icmp gt " + src1->getIRName() + "," + src2->getIRName();
+			break;
+		case IRInstOperator::IRINST_OP_LE_I:
+			str = getIRName() + " = icmp le " + src1->getIRName() + "," + src2->getIRName();
+			break;
+		case IRInstOperator::IRINST_OP_GE_I:
+			str = getIRName() + " = icmp ge " + src1->getIRName() + "," + src2->getIRName();
+			break;
+		case IRInstOperator::IRINST_OP_EQ_I:
+			str = getIRName() + " = icmp eq " + src1->getIRName() + "," + src2->getIRName();
+			break;
+		case IRInstOperator::IRINST_OP_NE_I:
+			str = getIRName() + " = icmp ne " + src1->getIRName() + "," + src2->getIRName();
+			break;
         default:
-            // 未知指令
             Instruction::toString(str);
             break;
     }

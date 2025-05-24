@@ -17,7 +17,8 @@
 #pragma once
 
 #include "Instruction.h"
-
+#include "LabelInstruction.h"
+#include "VoidType.h"
 ///
 /// @brief 二元运算指令
 ///

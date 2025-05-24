@@ -405,3 +405,21 @@ ast_node * add_var_decl_node(ast_node * stmt_node, var_id_attr & id)
 
     return stmt_node;
 }
+
+ast_node * create_func_formal_param(Type * type, const std::string & param_name, int64_t line_no)
+{
+    // 创建类型节点
+    ast_node * type_node = ast_node::New(type);
+    
+    // 创建标识符节点，使用参数名和行号
+    ast_node * id_node = ast_node::New(param_name, line_no);
+    
+    // 创建形参节点，指定节点类型为AST_OP_FUNC_FORMAL_PARAM，并设置类型和行号
+    ast_node * param_node = new ast_node(ast_operator_type::AST_OP_FUNC_FORMAL_PARAM, type, line_no);
+    
+    // 将类型节点和标识符节点作为子节点插入形参节点
+    param_node->insert_son_node(type_node);
+    param_node->insert_son_node(id_node);
+    
+    return param_node;
+}

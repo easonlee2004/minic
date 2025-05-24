@@ -19,6 +19,7 @@
 #include <unordered_map>
 
 #include "AST.h"
+#include "LabelInstruction.h"
 #include "Module.h"
 
 /// @brief AST遍历产生线性IR类
@@ -116,6 +117,91 @@ protected:
     /// @param node AST节点
     /// @return 翻译是否成功，true：成功，false：失败
     bool ir_default(ast_node * node);
+
+    /// @brief 整数乘法AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_mul(ast_node * node);
+
+    /// @brief 整数除法AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_div(ast_node * node);
+
+    /// @brief 整数取余AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_mod(ast_node * node);
+
+    /// @brief 整数取负AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_neg(ast_node * node);
+
+    /// @brief 大于关系运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_gt(ast_node * node);
+
+    /// @brief 小于关系运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_lt(ast_node * node);
+
+    /// @brief 大于等于关系运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_ge(ast_node * node);
+
+    /// @brief 小于等于关系运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_le(ast_node * node);
+
+    /// @brief 等于关系运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_eq(ast_node * node);
+
+    /// @brief 不等于关系运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_ne(ast_node * node);
+
+    /// @brief 逻辑与运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_logical_and(ast_node * node);
+
+    /// @brief 逻辑或运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_logical_or(ast_node * node);
+
+    /// @brief 逻辑非运算AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_logical_not(ast_node * node);
+
+    /// @brief if语句AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_if(ast_node * node);
+
+    /// @brief while语句AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_while(ast_node * node);
+
+    /// @brief break语句AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_break(ast_node * node);
+
+    /// @brief continue语句AST节点翻译成线性中间IR
+    /// @param node AST节点
+    /// @return 翻译是否成功，true：成功，false：失败
+    bool ir_continue(ast_node * node);
 
     /// @brief 根据AST的节点运算符查找对应的翻译函数并执行翻译动作
     /// @param node AST节点

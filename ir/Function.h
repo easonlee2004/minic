@@ -21,6 +21,7 @@
 #include "GlobalValue.h"
 #include "FunctionType.h"
 #include "FormalParam.h"
+#include "LabelInstruction.h"
 #include "LocalVariable.h"
 #include "MemVariable.h"
 #include "IRCode.h"
@@ -169,6 +170,26 @@ public:
     /// @brief 用于统计ARG指令个数的清零
     ///
     void realArgCountReset();
+
+    ///
+    /// @brief 获取当前循环的continue目标标签
+    ///
+    LabelInstruction * getContinueTarget()
+
+    ///
+    /// @brief 设置当前循环的continue目标标签
+    ///
+    void setContinueTarget(LabelInstruction * label)
+
+    ///
+    /// @brief 获取当前循环的break目标标签
+    ///
+    LabelInstruction * getBreakTarget()
+
+    ///
+    /// @brief 设置当前循环的break目标标签
+    ///
+    void setBreakTarget(LabelInstruction * label)
 
 private:
     ///
