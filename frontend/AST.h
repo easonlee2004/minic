@@ -107,7 +107,7 @@ enum class ast_operator_type : int {
     AST_OP_GT,
 
     /// @brief 小于
-	OP_LT,
+	AST_OP_LT,
 
     /// @brief 大于等于
     AST_OP_GE,

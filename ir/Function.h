@@ -174,22 +174,22 @@ public:
     ///
     /// @brief 获取当前循环的continue目标标签
     ///
-    LabelInstruction * getContinueTarget()
+    LabelInstruction * getContinueTarget();
 
     ///
     /// @brief 设置当前循环的continue目标标签
     ///
-    void setContinueTarget(LabelInstruction * label)
+    void setContinueTarget(LabelInstruction * label);
 
     ///
     /// @brief 获取当前循环的break目标标签
     ///
-    LabelInstruction * getBreakTarget()
+    LabelInstruction * getBreakTarget();
 
     ///
     /// @brief 设置当前循环的break目标标签
     ///
-    void setBreakTarget(LabelInstruction * label)
+    void setBreakTarget(LabelInstruction * label);
 
 private:
     ///
